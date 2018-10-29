@@ -29,7 +29,15 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function multiply(a, b) { //eslint-disable-line
   var product = a * b;
+
   return [a * b, 'The product of ' + a + ' and ' + b + ' is ' + product + '.'];
+  // var message = 'The product of ' + a + ' and ' + b + ' is ' + product + '.';
+  var message = `The product of ${a} and ${b} is ${product}.`;
+  var result = [product, message];
+
+  return result;
+  // return [a * b, `The product of ${a} and ${b} is ${a * b}.`];
+
 }
 
 // Here is the test for multiply(); uncomment it to run it
@@ -105,7 +113,7 @@ function multiplyArray(multArr) { //eslint-disable-line
 // Here is the test for multiplyArray(); uncomment it to run it
 testMultiplyArray(testArray);
 
-// Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
+// Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop.
 
 // You're done! Submit the link to the repo following the instructions in Canvas. Or, try out the stretch goal below...
 
@@ -127,11 +135,20 @@ Test this function by hand in the console to get it working, and when you think 
 var testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
+
   var currentProduct = testDynamicArray[0];
   for (var i = 1; i < dynamicArray.length; i++) {
     currentProduct = multiply(currentProduct, dynamicArray[i])[0];
   }
   return [currentProduct, 'The numbers ' + dynamicArray.join() + ' have a product of ' + currentProduct + '.'];
+
+  var current = dynamicArray[0];
+  for (var i = 1; i < dynamicArray.length; i++) {
+    current = multiply(current, dynamicArray[i])[0];
+  }
+
+  return [current, 'The numbers ' + dynamicArray.join() + ' have a product of ' + current + '.'];
+
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
